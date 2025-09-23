@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Camera test</title></head>
+<body style="margin:0">
+  <h3 style="margin:8px">Camera test — allow camera</h3>
+  <video id="v" autoplay playsinline style="width:100%;max-width:800px"></video>
+  <script>
+    const v = document.getElementById('v');
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => { v.srcObject = stream; console.log('Camera stream OK') })
+      .catch(err => { console.error('Camera error:', err); alert('Camera error: ' + err.message) });
+  </script>
+</body>
+</html>
